@@ -16,7 +16,7 @@ if (!contactForm) {
     })
     .then(() => {
         // url thanks
-        window.location.href = "./thanks.html";
+        window.location.href = "/thanks.html";
     })
     .catch((e) => alert("Error occured: " + e.message));
 });
