@@ -18,10 +18,29 @@
   box-sizing: border-box;
 }
 
+.logoimage {
+  position: fixed;
+  margin-top: 10px;
+  top: 0;
+  left: 90%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border-style: none;
+}
+
 .container {
   max-width: var(--max-width);
   margin: auto;
   padding: 5rem 1rem;
+}
+
+.content {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
 .sectitle {
@@ -55,18 +74,24 @@ body {
 }
 
 nav {
-  position: absolute;
+  position: fixed;
   width: 100%;
+  height: 100px;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: var(--max-width);
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 1rem;
+  z-index: 999;
+  background: #1313134b;
+  backdrop-filter: blur(40px);
 }
 
 nav .logo a {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-left: 50%;
 }
 
 nav .logo a span {
@@ -75,14 +100,16 @@ nav .logo a span {
 
 header {
   height: 100vh;
-  background-image: url("assets/header-bg.png");
+  background: var(--secondary-color);
+  background: linear-gradient(172deg, rgba(41,19,72,1) 0%, rgba(13,19,25,1) 52%);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .header_container {
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -129,7 +156,40 @@ header {
 .about_container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
+}
+
+.about_img {
+  position: relative;
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 260px;
+  height: 350px;
+  border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  overflow: hidden;
+  animation: flow 4s infinite ease-in-out;
+  background-color: var(--secondary-color);
+}
+
+.about_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes flow {
+ 0% {
+  border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+ } 
+ 30% {
+  border-radius: 80% 70% 60% 60% / 80% 70% 60% 70%;
+ }
+ 70% {
+  border-radius: 70% 90% 60% 70% / 80% 90% 50% 90%;
+ }
+ 100% {
+  border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+ }
 }
 
 .about_image,
@@ -138,11 +198,6 @@ header {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-.about_image img {
-  max-width: 400px;
-  clear: both;
 }
 
 .blob {
@@ -156,6 +211,7 @@ header {
 
 .about_details {
   padding: 1rem 0;
+  margin-left: 5%;
   color: var(--text-light);
   text-align: center;
 }
@@ -285,11 +341,11 @@ footer {
 }
 
 .skills_html {
-  width: 60%;
+  width: 75%;
 }
 
 .skills_css {
-  width: 70%;
+  width: 65%;
 }
 
 .skills_js {
@@ -319,7 +375,7 @@ footer {
     margin: auto;
   }
 
-  .about_image img{
+  .about_image {
     clear: both;
   }
 
@@ -345,10 +401,21 @@ footer {
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .header_container h1 {
     font-size: 5rem;
     line-height: 5rem;
+  }
+
+  .container p {
+    font-size: 15px;
+  }
+
+  .logoimage {
+    /* margin-left: -85%; */
+    margin-top: 25px;
+    width: 60px;
+    height: 60px;
   }
 
   .about_details,
@@ -362,13 +429,61 @@ footer {
   }
 }
 
+.my-element {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+
 @media screen and (max-width: 640px) {
-  .about_image {
-    justify-content: center;
-    margin-left: 15%;
+  .container p {
+    top: 50px;
+    font-size: 15px;
   }
 
-  .social_icons {
+  .logoimage {
+    /* top: 25px; */
+    /* margin: auto;  */
+    left: 40px;   
+    width: 50px;
+    height: 50px;
+  }
+
+  .about_details {
+    font-size: 14px;
+  }
+
+  .service_grid,
+  .project_grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .secsubtitle {
+    font-size: 15px;
+  }
+
+  .header_container p {
     margin-top: 10%;
+  }
+
+  .header_container h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+  }
+
+  .about_details {
+    text-align: center;
   }
 }

@@ -4,19 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <meta name="author" content="codegrid" />
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
     <title>eviruin</title>
   </head>
   <body>
@@ -25,13 +20,16 @@
         <a href="#">evi<span>ruin.</span></a>
       </div>
     </nav>
+    <div class="logo-container">
+      <img class="logoimage" src="assets/taofik.png" alt=""/>
+    </div>
     <header>
       <div class="container header_container">
         <p><span>Hello</span> I'm</p>
         <h1>Taofik Hidayat</h1>
-        <h2 class="sectitle">Junior<span> Frontend.</span></h2>
-        <p>
-          You can call me evik. I'm from Bogor West Java, Indonesia. I am a
+        <h2 class="sectitle">Frontend<span> Developer.</span></h2>
+        <p class="content">
+          I'm from Bogor West Java, Indonesia. I'm a
           graduate of Vocational High School, majoring in Office Administration.
           Currently, I'm pursuing a bachelor's degree at Pamulang University,
           majoring in computer engineering.
@@ -40,39 +38,16 @@
           <button class="btn"><a href="assets/cv.pdf">Download CV</a></button>
         </div>
       </div>
-    </header>
-    <main>
-      <section class="about">
+      </header>
+      <main>
+        <section class="about">
         <div class="container about_container">
-          <div class="about_image">
-            <svg
-              class="blob"
-              viewBox="0 0 579 567"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <mask id="mask0" mask-type="alpha">
-                <path
-                  d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                />
-              </mask>
-              <g mask="url(#mask0)">
-                <path
-                  d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"
-                />
-                <image
-                  class="blob-img"
-                  x="40"
-                  y="50"
-                  href="assets/about-bg.png"
-                  alt="About Background"
-                />
-              </g>
-            </svg>
+          <div class="about_img">
+                <img src="assets/about-bg.png" alt="About Background"/>
           </div>
           <article class="about_content">
             <h2 class="sectitle">Exper<span>iences</span></h2>
-            <p class="secsubtitle">Junior Frontend Developer.</p>
+            <p class="secsubtitle">Frontend Developer.</p>
             <p class="about_details">
               I have significant experience in Android application development,
               user interface (UI) design, and Custom ROM development through
@@ -157,5 +132,22 @@
       </div>
     </footer>
     <script src="js/sendedmsg.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      ScrollTrigger.create({
+          animation: gsap.from(".logoimage", {
+              x: "-40vh",
+              y: "50vh",
+              scale: 4,
+              yPercent: -50,
+          }),
+          scrub: true,
+          trigger:".about_details",
+          start: "top bottom",
+          endTrigger: ".about_details",
+          end: "top center",
+      });
+  </script>
   </body>
 </html>
