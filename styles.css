@@ -474,6 +474,10 @@ footer {
     font-size: 15px;
   }
 
+  .action_btns {
+    margin-top: 20px;
+  }
+
   .header_container p {
     margin-top: 10%;
   }
