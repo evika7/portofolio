@@ -352,6 +352,10 @@ footer {
   width: 40%;
 }
 
+.skills_ux {
+  width: 70%
+}
+
 
 @media (min-width: 640px) {
   .sectitle {
